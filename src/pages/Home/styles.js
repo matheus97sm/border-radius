@@ -2,6 +2,7 @@ import styled, { keyframes } from 'styled-components';
 
 export const Container = styled.div`
   width: 100%;
+  max-width: 480px;
   height: 100%;
   padding-top: 32px;
   display: flex;
@@ -43,6 +44,26 @@ export const Container = styled.div`
 
       svg {
         margin-left: 8px;
+      }
+    }
+  }
+
+  @media screen and (min-width: 600px) {
+    padding-top: 128px;
+
+    div {
+      h1 {
+        font-size: 54px;
+      }
+
+      p {
+        font-size: 24px;
+        line-height: 34px;
+      }
+
+      a {
+        padding: 8px 64px;
+        font-size: 20px;
       }
     }
   }

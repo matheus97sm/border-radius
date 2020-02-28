@@ -33,6 +33,12 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media screen and (min-width: 1050px) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+  }
 `;
 
 export const InputWrapper = styled.div`
@@ -79,6 +85,7 @@ export const BorderData = styled.code`
   box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.15);
   border-radius: 16px;
   color: #fff;
+  cursor: pointer;
 
   span {
     display: block;
@@ -97,5 +104,14 @@ export const BorderData = styled.code`
     position: absolute;
     bottom: 8px;
     right: 8px;
+  }
+
+  @media screen and (min-width: 1050px) {
+    width: unset;
+
+    span {
+      font-size: 12px;
+      line-height: 20px;
+    }
   }
 `;

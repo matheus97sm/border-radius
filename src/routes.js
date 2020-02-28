@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 
 import Home from './pages/Home';
 import Create from './pages/Create';
@@ -15,6 +16,7 @@ export default function Routes() {
       </Switch>
 
       <Global />
+      <ToastContainer autoClose={5000} />
     </BrowserRouter>
   );
 }

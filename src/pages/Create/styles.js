@@ -80,6 +80,19 @@ export const BorderData = styled.code`
   border-radius: 16px;
   color: #fff;
 
+  span {
+    display: block;
+    font-size: 11px;
+    line-height: 18px;
+  }
+
+  textarea {
+    position: absolute;
+    height: 0;
+    width: 0;
+    opacity: 0;
+  }
+
   svg {
     position: absolute;
     bottom: 8px;

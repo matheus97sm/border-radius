@@ -14,7 +14,7 @@ const global = createGlobalStyle`
 
   body {
     background: linear-gradient(-45deg, #203A43, #0F2027) no-repeat;
-    height: 100vh;
+    min-height: 100vh;
     -webkit-font-smoothing: antialiased;
   }
 

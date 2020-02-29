@@ -11,6 +11,7 @@ const MAX_TOAST = 3;
 export default class Create extends Component {
   constructor(props) {
     super(props);
+    this.textarea = React.createRef();
 
     this.state = {
       top: 0,
@@ -49,13 +50,13 @@ export default class Create extends Component {
       return this.notAllowedKey();
     }
 
-    this.setState({
+    return this.setState({
       [where]: newValue,
     });
   };
 
   copyToClipboard = () => {
-    this.textarea.select();
+    this.textarea.current.select();
     document.execCommand('copy');
 
     return this.copiedToClipboard();
@@ -89,12 +90,12 @@ export default class Create extends Component {
             <input
               type="text"
               placeholder="0px"
-              onChange={e => this.handleBorder('bottom', e)}
+              onChange={e => this.handleBorder('left', e)}
             />
             <input
               type="text"
               placeholder="0px"
-              onChange={e => this.handleBorder('left', e)}
+              onChange={e => this.handleBorder('bottom', e)}
             />
           </InputWrapper>
 
@@ -116,7 +117,7 @@ export default class Create extends Component {
               -moz-border-radius: {top} {right} {bottom} {left};
             </span>
             <textarea
-              ref={textarea => (this.textarea = textarea)}
+              ref={this.textarea}
               readOnly
               value={`
                 border-radius: ${top} ${right} ${bottom} ${left};

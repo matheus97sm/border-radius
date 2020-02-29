@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 export const Container = styled.div`
   width: 100%;
@@ -113,5 +113,40 @@ export const BorderData = styled.code`
       font-size: 12px;
       line-height: 20px;
     }
+  }
+`;
+
+const square1 = keyframes`
+  0%, 100% {
+    transform: rotate(20deg);
+  }
+
+  50% {
+    transform: rotate(10deg);
+  }
+`;
+
+export const DecorationSquare = styled.div`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  z-index: -10;
+
+  div {
+    position: absolute;
+    bottom: -90vmin;
+    left: -25vmin;
+    width: 100%;
+    background: linear-gradient(45deg, #93291e, #ed213a);
+    width: 100vmin;
+    height: 100vmin;
+    transform: rotate(20deg);
+    animation: ${square1} 8s infinite ease-in-out;
+    border-radius: 10vmin;
+    box-shadow: -20px -20px 30px rgba(0, 0, 0, 0.15);
+    z-index: -10;
   }
 `;

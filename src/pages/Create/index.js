@@ -3,7 +3,14 @@ import { Link } from 'react-router-dom';
 import { MdArrowBack, MdContentCopy } from 'react-icons/md';
 import { toast } from 'react-toastify';
 
-import { Container, Wrapper, InputWrapper, Square, BorderData } from './styles';
+import {
+  Container,
+  Wrapper,
+  InputWrapper,
+  Square,
+  BorderData,
+  DecorationSquare,
+} from './styles';
 
 const toastList = new Set();
 const MAX_TOAST = 3;
@@ -66,69 +73,74 @@ export default class Create extends Component {
     const { top, right, bottom, left } = this.state;
 
     return (
-      <Container>
-        <header>
-          <Link to="/">
-            <MdArrowBack size="24" color="#fff" />
-            Voltar
-          </Link>
-          <h1>Border-radius generator</h1>
-        </header>
+      <>
+        <Container>
+          <header>
+            <Link to="/">
+              <MdArrowBack size="24" color="#fff" />
+              Voltar
+            </Link>
+            <h1>Border-radius generator</h1>
+          </header>
 
-        <Wrapper>
-          <InputWrapper>
-            <input
-              type="text"
-              placeholder="0px"
-              onChange={e => this.handleBorder('top', e)}
-            />
-            <input
-              type="text"
-              placeholder="0px"
-              onChange={e => this.handleBorder('right', e)}
-            />
-            <input
-              type="text"
-              placeholder="0px"
-              onChange={e => this.handleBorder('left', e)}
-            />
-            <input
-              type="text"
-              placeholder="0px"
-              onChange={e => this.handleBorder('bottom', e)}
-            />
-          </InputWrapper>
+          <Wrapper>
+            <InputWrapper>
+              <input
+                type="text"
+                placeholder="0px"
+                onChange={e => this.handleBorder('top', e)}
+              />
+              <input
+                type="text"
+                placeholder="0px"
+                onChange={e => this.handleBorder('right', e)}
+              />
+              <input
+                type="text"
+                placeholder="0px"
+                onChange={e => this.handleBorder('left', e)}
+              />
+              <input
+                type="text"
+                placeholder="0px"
+                onChange={e => this.handleBorder('bottom', e)}
+              />
+            </InputWrapper>
 
-          <Square
-            borderTopLeft={top}
-            borderTopRight={right}
-            borderBottomRight={bottom}
-            borderBottomLeft={left}
-          />
+            <Square
+              borderTopLeft={top}
+              borderTopRight={right}
+              borderBottomRight={bottom}
+              borderBottomLeft={left}
+            />
 
-          <BorderData onClick={() => this.copyToClipboard()}>
-            <span>
-              border-radius: {top} {right} {bottom} {left};
-            </span>
-            <span>
-              -webkit-border-radius: {top} {right} {bottom} {left};
-            </span>
-            <span>
-              -moz-border-radius: {top} {right} {bottom} {left};
-            </span>
-            <textarea
-              ref={this.textarea}
-              readOnly
-              value={`
+            <BorderData onClick={() => this.copyToClipboard()}>
+              <span>
+                border-radius: {top} {right} {bottom} {left};
+              </span>
+              <span>
+                -webkit-border-radius: {top} {right} {bottom} {left};
+              </span>
+              <span>
+                -moz-border-radius: {top} {right} {bottom} {left};
+              </span>
+              <textarea
+                ref={this.textarea}
+                readOnly
+                value={`
                 border-radius: ${top} ${right} ${bottom} ${left};
                 -webkit-border-radius: ${top} ${right} ${bottom} ${left};
                 -moz-border-radius: ${top} ${right} ${bottom} ${left};
               `}
-            />
-            <MdContentCopy size="16" color="#fff" />
-          </BorderData>
-        </Wrapper>
-      </Container>
+              />
+              <MdContentCopy size="16" color="#fff" />
+            </BorderData>
+          </Wrapper>
+        </Container>
+        <DecorationSquare>
+          <div />
+        </DecorationSquare>
+      </>
     );
   }
 }
